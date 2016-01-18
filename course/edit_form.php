@@ -201,8 +201,11 @@ class course_edit_form extends moodleform {
         $languages=array();
         $languages[''] = get_string('forceno');
         $languages += get_string_manager()->get_list_of_translations();
-        $mform->addElement('select', 'lang', get_string('forcelanguage'), $languages);
-        $mform->setDefault('lang', $courseconfig->lang);
+        if ((empty($course->id) && guess_if_creator_will_have_course_capability('moodle/course:forcelanguage', $categorycontext))
+                || (!empty($course->id) && has_capability('moodle/course:forcelanguage', $coursecontext))) {
+            $mform->addElement('select', 'lang', get_string('forcelanguage'), $languages);
+            $mform->setDefault('lang', $courseconfig->lang);
+        }
 
         // Multi-Calendar Support - see MDL-18375.
         $calendartypes = \core_calendar\type_factory::get_list_of_calendar_types();
