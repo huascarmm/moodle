@@ -131,6 +131,7 @@ $string['course:changeshortname'] = 'Change course short name';
 $string['course:changesummary'] = 'Change course summary';
 $string['course:enrolconfig'] = 'Configure enrol instances in courses';
 $string['course:enrolreview'] = 'Review course enrolments';
+$string['course:forcelanguage'] = 'Force course language';
 $string['course:ignorefilesizelimits'] = 'Use files larger than any file size restrictions';
 $string['course:isincompletionreports'] = 'Be shown on completion reports';
 $string['course:manageactivities'] = 'Manage activities';
